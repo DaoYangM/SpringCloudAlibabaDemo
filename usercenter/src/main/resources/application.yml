@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:mysql://www.daoyang.design:3306/user-center?characterEncoding=UTF8
+    username: root
+    password: yedeyang
+    driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port: 8080
