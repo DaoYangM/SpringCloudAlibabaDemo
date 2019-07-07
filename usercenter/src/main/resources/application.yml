@@ -1,6 +1,8 @@
+server:
+  port: 8080
 spring:
   application:
-    name: usercenter
+    name: user-center
   datasource:
     url: jdbc:mysql://www.daoyang.design:3306/user_center?characterEncoding=UTF8&serverTimezone=Asia/Shanghai
     username: root
@@ -8,10 +10,11 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jackson:
     time-zone: GMT+8
-
   cloud:
     nacos:
-      config:
-        server-addr: 127.0.0.1:8848
-server:
-  port: 8080
+      discovery:
+        server-addr: localhost:8848
+        namespace: 7dba8a31-94bf-444f-81ef-7d36ff38f630
+        cluster-name: NJ
+        metadata:
+          version: v1
