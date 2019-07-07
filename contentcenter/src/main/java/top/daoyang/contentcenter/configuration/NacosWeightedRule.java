@@ -15,6 +15,7 @@ import org.springframework.cloud.alibaba.nacos.ribbon.NacosServer;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -42,7 +43,7 @@ public class NacosWeightedRule extends AbstractLoadBalancerRule {
             NacosServer nacosServer;
             List<Instance> allInstances = namingService.getAllInstances(serviceName)
                     .stream()
-                    .filter(instance -> instance.getMetadata().get("version").equals(metadata.get("version")))
+                    .filter(instance -> Objects.equals(instance.getMetadata().get("version"), metadata.get("version")))
                     .collect(Collectors.toList());
 
             if (allInstances.isEmpty()) {
